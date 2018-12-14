@@ -21,10 +21,10 @@ public class MealsUtil {
     );
 
     public static List<MealWithExceed> getMealsWithExceed(List<Meal> mealList, int caloriesPerDay) {
-        return getFilteredMealsWithExceed(mealList, LocalTime.MIN, LocalTime.MAX, caloriesPerDay);
+        return getMealsWithExceed(mealList, LocalTime.MIN, LocalTime.MAX, caloriesPerDay);
     }
 
-    public static List<MealWithExceed> getFilteredMealsWithExceed(List<Meal> mealList, LocalTime startTime, LocalTime endTime, int caloriesPerDay) {
+    public static List<MealWithExceed> getMealsWithExceed(List<Meal> mealList, LocalTime startTime, LocalTime endTime, int caloriesPerDay) {
 
         Map<LocalDate, Integer> caloriesSumPerDate = new HashMap<>();
 

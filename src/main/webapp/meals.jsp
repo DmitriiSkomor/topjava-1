@@ -11,29 +11,40 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <title>Meals</title>
+    <style>
+        .normal {
+            color: green;
+        }
+
+        .exceeded {
+            color: red;
+        }
+    </style>
 </head>
 <body>
-
-<c:forEach items="${meals}" var="item">
-
-    <javatime:format value="${item.dateTime}" pattern="yyyy-MM-dd" var="parsedDate"/>
-    <c:choose>
-        <c:when test="${item.exceed=='1'}">
-            <font color="green">
-                    ${parsedDate} ${item}
-            </font>
-            <br/>
-        </c:when>
-        <c:otherwise>
-            <font color="#8b0000">
-                    ${parsedDate} ${item}
-            </font>
-            <br/>
-        </c:otherwise>
-    </c:choose>
-
-</c:forEach>
-
+<section>
+    <h3><a href="index.html">Home</a></h3>
+    <h2>Meals</h2>
+    <hr/>
+    <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Calories</th>
+        </tr>
+        </thead>
+        <c:forEach items="${meals}" var="meal">
+            <javatime:format value="${meal.dateTime}" pattern="yyyy-MM-dd" var="parsedDate"/>
+            <jsp:useBean id="meal" scope="page" type="ru.javawebinar.topjava.model.MealWithExceed"/>
+            <tr class="${meal.exceed ? 'exceeded' : 'normal'}">
+                <td>${parsedDate}</td>
+                <td>${meal.description}</td>
+                <td>${meal.calories}</td>
+            </tr>
+        </c:forEach>
+    </table>
+</section>
 </body>
 </html>

@@ -29,6 +29,14 @@ public class MealWithExceed {
         return dateTime;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public int getCalories() {
+        return calories;
+    }
+
     @Override
     public String toString() {
         return description + " " +  calories;

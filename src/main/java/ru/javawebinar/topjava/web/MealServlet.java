@@ -13,7 +13,7 @@ import java.util.List;
 public class MealServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("meals",MealsUtil.getMealsWithExceed());
+        request.setAttribute("meals",MealsUtil.getMealsWithExceed(MealsUtil.MEAL_LIST,2000));
         request.getRequestDispatcher("meals.jsp").forward(request,response);
     }
 }
